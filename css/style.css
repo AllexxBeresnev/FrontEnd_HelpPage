@@ -1,0 +1,80 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  max-width: 1175px;
+  margin: auto;
+}
+
+@media (max-width: 1199px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 760px) {
+  .container {
+    max-width: 100%;
+    padding: 0 30px;
+  }
+}
+
+@font-face {
+  font-family: 'Proxima Nova Light';
+  src: url("../fonts/ProximaNova-Light.eot");
+  src: url("../fonts/ProximaNova-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Light.woff") format("woff"), url("../fonts/ProximaNova-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Proxima Nova Semibold';
+  src: url("../fonts/ProximaNova-Semibold.eot");
+  src: url("../fonts/ProximaNova-Semibold.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Semibold.woff") format("woff"), url("../fonts/ProximaNova-Semibold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Proxima Nova Light', san-serif;
+}
+
+.logo__text {
+  display: block;
+  color: #0c0c0c;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.tree {
+  font-family: 'Proxima Nova Semibold', san-serif;
+  font-size: 20px;
+  list-style-image: url("../img/marker3.png");
+}
+
+.tree__link {
+  font-family: 'Proxima Nova Light', san-serif;
+  text-decoration: none;
+}
+
+.tree__branch {
+  display: none;
+}
+
+.tree__branch:hover {
+  cursor: pointer;
+}
+
+.tree__branch-show {
+  display: block;
+}
+/*# sourceMappingURL=style.css.map */
