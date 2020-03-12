@@ -45,13 +45,18 @@
 
 body {
   font-family: 'Proxima Nova Light', san-serif;
+  background: url(../img/bg2.jpg) fixed, rgba(255, 255, 255, 0.9);
+  background-blend-mode: color;
+}
+
+header {
+  position: fixed;
+  margin: 0 auto;
 }
 
 .navber {
+  display: block;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -88,6 +93,8 @@ body {
 }
 
 .tree {
+  margin-top: 20px;
+  padding: 0;
   font-family: 'Proxima Nova Semibold', san-serif;
   font-size: 20px;
   list-style-image: url("../img/marker3.png");
@@ -97,11 +104,11 @@ body {
 .tree__link {
   font-family: 'Proxima Nova Light', san-serif;
   text-decoration: none;
-  color: green;
+  color: DarkMagenta;
 }
 
 .tree__link:hover {
-  font-family: 'Proxima Nova Semibold', san-serif;
+  color: Magenta;
 }
 
 .tree__branch {
