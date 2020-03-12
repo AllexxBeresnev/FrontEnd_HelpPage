@@ -67,13 +67,13 @@ header {
   color: blue;
   text-transform: uppercase;
   text-align: center;
-  padding-top: 20px;
+  margin-left: 130px;
   font-size: 20px;
 }
 
 .expand {
-  padding-top: 15px;
-  float: left;
+  position: fixed;
+  top: 10px;
 }
 
 .expand__button {
@@ -93,7 +93,7 @@ header {
 }
 
 .tree {
-  margin-top: 20px;
+  margin-top: 40px;
   padding: 0;
   font-family: 'Proxima Nova Semibold', san-serif;
   font-size: 20px;
