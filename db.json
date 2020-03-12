@@ -1,39 +1,137 @@
 {
-  "people": [
+  "mainlines": [
     {
-      "name": "John",
-      "surname": "Smith",
-      "sex": "male",
-      "age": 26,
-      "photo": "https://m.media-amazon.com/images/M/MV5BMjM3MjM3NTAxM15BMl5BanBnXkFtZTgwMTY0Nzg2OTE@._V1_.jpg"
+      "id": 1,
+      "title": "Ресурсы",
+      "parent": 0,
+      "folder": true,
+      "link": ""
     },
     {
-      "name": "Angela",
-      "surname": "Whinston",
-      "sex": "female",
-      "age": 31,
-      "photo": "https://onthewingsoflove.blob.core.windows.net/album/011816-Angela/1.jpg"
+      "id": 2,
+      "title": "Инструменты",
+      "parent": 0,
+      "folder": true,
+      "link": ""
     },
     {
-      "name": "Alex",
-      "surname": "Solberry",
-      "sex": "male",
-      "age": 35,
-      "photo": "https://www.gv.com/img/team-large/john-lyman.jpg"
+      "id": 3,
+      "title": "Верстальщик",
+      "parent": 0,
+      "folder": true,
+      "link": ""
     },
     {
-      "name": "Anna",
-      "surname": "Rayan",
-      "sex": "female",
-      "age": 23,
-      "photo": "https://pbs.twimg.com/profile_images/1127551365918679040/On8uLuSc.jpg"
+      "id": 4,
+      "title": "Java Script Developer",
+      "parent": 0,
+      "folder": true,
+      "link": ""
     },
     {
-      "name": "Michael",
-      "surname": "Dobkin",
-      "sex": "male",
-      "age": 30,
-      "photo": "https://wwwimage-secure.cbsstatic.com/thumbnails/photos/w425/cast/3b2b388f58aae2da_yr_michaelm_800x1000.jpg"
+      "id": 12,
+      "title": "CodeOpen.io",
+      "parent": 1,
+      "folder": false,
+      "link": "https://codepen.io/dashboard?type=VIEW&opts_itemType=COLLECTION&opts_searchTerm=null&opts_order=RELEVANCE&opts_depth=EVERYTHING&opts_showForks=false&opts_filter=all&opts_orderBy=ID&opts_orderDirection=0&opts_tag=null&displayType=GRID&previewType=IFRAME&activeType=COLLECTION"
+    },
+    {
+      "id": 11,
+      "title": "Шрифты",
+      "parent": 1,
+      "folder": true,
+      "link": ""
+    },
+    {
+      "id": 111,
+      "title": "Шрифты Google",
+      "parent": 1,
+      "folder": false,
+      "link": "https://fonts.google.com/"
+    },
+    {
+      "id": 21,
+      "title": "VS Code",
+      "parent": 2,
+      "folder": true,
+      "link": ""
+    },
+    {
+      "id": 211,
+      "title": "Скачать",
+      "parent": 21,
+      "folder": false,
+      "link": "#"
+    },
+    {
+      "id": 212,
+      "title": "Полезные расширения",
+      "parent": 21,
+      "folder": false,
+      "link": ""
+    },
+    {
+      "id": 22,
+      "title": "Gulp - сборщик проектов",
+      "parent": 2,
+      "folder": true,
+      "link": ""
+    },
+    {
+      "id": 221,
+      "title": "Документация",
+      "parent": 22,
+      "folder": false,
+      "link": "#"
+    },
+    {
+      "id": 222,
+      "title": "Готовое решение от Типичного верстальщика",
+      "parent": 22,
+      "folder": false,
+      "link": "http://tpverstak.ru/gulp/"
+    },
+    {
+      "id": 3,
+      "title": "Верстальщик",
+      "parent": 1,
+      "folder": true,
+      "link": ""
+    },
+    {
+      "id": 31,
+      "title": "HTML",
+      "parent": 3,
+      "folder": true,
+      "link": ""
+    },
+    {
+      "id": 32,
+      "title": "CSS",
+      "parent": 3,
+      "folder": true,
+      "link": ""
+    },
+    {
+      "id": 321,
+      "title": "Сетка",
+      "parent": 32,
+      "folder": true,
+      "link": ""
+    },
+    {
+      "id": 3211,
+      "title": "Flexbox",
+      "parent": 321,
+      "folder": false,
+      "link": "#"
+    },
+    {
+      "id": 3212,
+      "title": "Grid",
+      "parent": 321,
+      "folder": false,
+      "link": ""
     }
   ]
 }
