@@ -18,26 +18,27 @@ branch.forEach(function(elem){
             sibling.nodeType ==1 && sibling.classList.toggle("tree__branch-show");            
 
 }
-
-//        console.log(event.target);
-//        event.stopPropagation;
-        //найти все дочерние ul и поменять им класс
-//        console.log(event.target.children.length);
-//        for (let i = 0; i < elem.children.length; i++){
-//            elem.children[i].classList.toggle("tree__branch-show");            
-            //если это UL то ставим класс, span пропускаем (или нет))
-//        }
-//        let my_elem = elem.firstChild.nextSibling;
- //       console.log(elem);
-//        console.log(my_elem);     
-//        my_elem.classList.add("tree__branch-show");
-//        console.log(my_elem.children.length);        
-        //открываем дочерние элементы
-//        for (let i = 0; i < my_elem.children.length; i++){
-            //меняем класс чтобы был виден или скрыт
-//            my_elem.children[i].classList.add("tree__branch-show");
-//            console.log(my_elem.children[i]);
-//        }
-
     })
 });
+
+//Кнопка Развернуть все
+let expand = document.querySelector(".expand__button");
+expand.addEventListener("click", () => {
+    if (expand.innerHTML == "Развернуть") {
+        expand.innerHTML="Свернуть";
+        branch.forEach( (elem) => {
+            elem.classList.add("tree__branch-show");
+        })
+    } else {
+        expand.innerHTML="Развернуть";
+        //не трогать корневые ветки дерева
+        branch.forEach( (elem) => {
+            if (!elem.classList.contains('tree_mainItems')) {
+                elem.classList.remove("tree__branch-show");                
+            }
+
+        })
+    }
+
+});
+console.log(expand);

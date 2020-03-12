@@ -47,12 +47,37 @@ body {
   font-family: 'Proxima Nova Light', san-serif;
 }
 
+.navber {
+  position: relative;
+  border: 1px solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo {
+  border: 1px solid;
+}
+
 .logo__text {
   display: block;
   color: #0c0c0c;
   text-transform: uppercase;
   text-align: center;
   padding-top: 20px;
+}
+
+.expand {
+  padding-top: 20px;
+  border: 1px solid;
+  float: left;
+}
+
+.expand__button {
+  width: 100px;
 }
 
 .tree {
