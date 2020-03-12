@@ -49,7 +49,6 @@ body {
 
 .navber {
   position: relative;
-  border: 1px solid;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -58,37 +57,51 @@ body {
           align-items: center;
 }
 
-.logo {
-  border: 1px solid;
-}
-
 .logo__text {
   display: block;
-  color: #0c0c0c;
+  color: blue;
   text-transform: uppercase;
   text-align: center;
   padding-top: 20px;
+  font-size: 20px;
 }
 
 .expand {
-  padding-top: 20px;
-  border: 1px solid;
+  padding-top: 15px;
   float: left;
 }
 
 .expand__button {
+  color: blue;
   width: 100px;
+  margin-left: 20px;
+}
+
+.save {
+  padding-top: 15px;
+  float: left;
+}
+
+.save__button {
+  margin-left: 20px;
+  color: grey;
 }
 
 .tree {
   font-family: 'Proxima Nova Semibold', san-serif;
   font-size: 20px;
   list-style-image: url("../img/marker3.png");
+  color: blue;
 }
 
 .tree__link {
   font-family: 'Proxima Nova Light', san-serif;
   text-decoration: none;
+  color: green;
+}
+
+.tree__link:hover {
+  font-family: 'Proxima Nova Semibold', san-serif;
 }
 
 .tree__branch {

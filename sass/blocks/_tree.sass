@@ -2,12 +2,16 @@
     +bold
     font-size: 20px
     list-style-image: url('../img/marker3.png')
+    color: $text-color
 
     &__leaf
 
     &__link
         +light
         text-decoration: none
+        color: $link-color
+        &:hover
+            +bold
     &__branch
         display: none
         &:hover

@@ -10,10 +10,10 @@ branch.forEach(function(elem){
         event.stopImmediatePropagation();
 // найти всех соседних в цикле
         let sibling = event.target;
-        console.log(sibling);
+//        console.log(sibling);
         while (sibling.nextSibling) {
             sibling = sibling.nextSibling;
-            console.log(sibling);
+//            console.log(sibling);
 //сразу меняем класс            
             sibling.nodeType ==1 && sibling.classList.toggle("tree__branch-show");            
 
@@ -21,7 +21,7 @@ branch.forEach(function(elem){
     })
 });
 
-//Кнопка Развернуть все
+//Кнопка Развернуть/Свернуть
 let expand = document.querySelector(".expand__button");
 expand.addEventListener("click", () => {
     if (expand.innerHTML == "Развернуть") {
@@ -41,4 +41,5 @@ expand.addEventListener("click", () => {
     }
 
 });
-console.log(expand);
+//--  the end  --Кнопка Развернуть/Свернуть
+
