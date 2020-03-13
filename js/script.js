@@ -144,6 +144,21 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     });
 
+    //Пробегаемся по всем элементам
+    let branch = document.querySelectorAll(".tree__branch");
+    let leafs = document.querySelectorAll(".tree__leaf");
+
+    branch.forEach(function(elem){
+        elem.addEventListener("click", function(event){
+            event.stopImmediatePropagation();
+    // найти всех уровнем ниже
+
+        elem.classList.toggle("tree__branch-show");            
+         });
+    });
+
+
+
 });
 
 
