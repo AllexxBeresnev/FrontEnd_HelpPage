@@ -97,7 +97,6 @@ header {
   padding: 0;
   font-family: 'Proxima Nova Semibold', san-serif;
   font-size: 20px;
-  list-style-image: url("../img/marker3.png");
   color: blue;
 }
 
@@ -111,15 +110,15 @@ header {
   color: Magenta;
 }
 
-.tree__branch {
-  display: none;
+.col2 {
+  margin-left: 30px;
 }
 
-.tree__branch:hover {
-  cursor: pointer;
+.col3 {
+  margin-left: 60px;
 }
 
-.tree__branch-show {
-  display: block;
+.col4 {
+  margin-left: 90px;
 }
 /*# sourceMappingURL=style.css.map */

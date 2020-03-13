@@ -2,86 +2,88 @@
 
 window.addEventListener("DOMContentLoaded", () => {
 
-//              ОТКЛАДЫВАЕТСЯ НА НЕОПРЕДЕЛЕННОЕ ВРЕМЯ - ПОКА ЗНАНИЙ НЕТ
-
 
 //*************************** */
-//Формирование внешнего вида на основе JSON файла
+//Формирование внешнего вида на основе CSV файла
 //*************************** */
 
-//    function makeTree() {
+    function makeTree() {
 
-//Считать с БД содержимое для отрисовки объектов из JSON
 
-/*         const request = new XMLHttpRequest();
-        request.open('GET','http://localhost:3000/mainlines');
+
+        const request = new XMLHttpRequest();
+        request.open('GET','https://docs.google.com/spreadsheets/d/e/2PACX-1vSoZrr42llkXGHBUOH-pNtGSwDeKlYZlL2qApXUaw0FFrqUeFNgxnn_rICX1lwgPlHDhuRRT55Z9jy3/pub?gid=0&single=true&output=csv');
         request.setRequestHeader("Content-type","application/json; charset=utf-8");
         request.send();
         request.addEventListener("readystatechange", function(){
             if (request.readyState == 4 && request.status == 200) {
-                let data = JSON.parse(request.response);
-                console.log(data);
-                data.forEach(item => {
-                    if (item.parent == 0) {
-                        let mainLi = document.createElement('li');
-                        mainLi.classList.add('tree__branch');
-                        mainLi.classList.add('tree__branch-show');
-                        mainLi.classList.add('tree_mainItems');
-                        mainLi.innerHTML = `
-                            <span>${item.title}</span>
-                        `;
-                          let parent = document.querySelector('.tree');
-                        parent.appendChild(mainLi);
-                        console.log(parent);
+// преобразование CSV в объект JS
 
-                    }
-            })
+            csvToWindow(request.response)
             } else {console.error('Что-то пошло не так');}
     });
-    } */
-//makeTree();
+    } 
 
-//Навешиваем событие на клик по ветке дерева
-//Должны показываться только дочерние элементы к нему
-let branch = document.querySelectorAll(".tree__branch");
-//Пробегаемся по всем элементам
-branch.forEach(function(elem){
-    elem.addEventListener("click", function(event){
-        event.stopImmediatePropagation();
-// найти всех соседних в цикле
-        let sibling = event.target;
-//        console.log(sibling);
-        while (sibling.nextSibling) {
-            sibling = sibling.nextSibling;
-//            console.log(sibling);
-//сразу меняем класс            
-            sibling.nodeType ==1 && sibling.classList.toggle("tree__branch-show");            
 
-}
-    })
-});
+//должен получиться массив со строками с полями
+// "count": n - количество отступов
+// "title": "xxxx" заголовок строки
+// "link":  "http...."  ссылка на источник
 
-//Кнопка Развернуть/Свернуть
-let expand = document.querySelector(".expand__button");
-expand.addEventListener("click", () => {
-    if (expand.innerHTML == "Развернуть") {
-        expand.innerHTML="Свернуть";
-        branch.forEach( (elem) => {
-            elem.classList.add("tree__branch-show");
-        })
-    } else {
-        expand.innerHTML="Развернуть";
-        //не трогать корневые ветки дерева
-        branch.forEach( (elem) => {
-            if (!elem.classList.contains('tree_mainItems')) {
-                elem.classList.remove("tree__branch-show");                
+    function csvToWindow(csv){
+        let str, 
+            title,
+            link,
+            tab;  //для количества отступов
+        let rows = csv.split("\n");
+        for (let i = 0; i < rows.length; i++) {  //основной пробег по строкам
+            str = rows[i];
+//            console.log(str);          
+/*---------------------------*/
+/*Первым проходом находим количество табов*/
+            tab = 0;  
+            for (let j = 0; j < str.length; j++) { // пробег по бувам
+                if (str[j]== ","){
+                    tab++;
+                } else {break}               
+
+                }
+                //отсекаем первые запятые
+                str = str.substr(tab, str.length);
+/*---------------------------*/
+
+//Далее вытаскиваем Title
+                title = "";
+
+                for (let j = 0; j < str.length; j++) { // пробег по бувам
+                    if (str[j] != ","){
+                        title = title+str[j];
+                    } else {break}               
+    
+                    }
+
+                //отсекаем Title
+                str = str.substr(title.length+1, str.length);
+
+//                console.log(str, title);        
+/*---------------------------*/
+//Далее вытаскиваем Link
+                link = "";
+                for (let j = 0; j < str.length; j++) { // пробег по бувам
+                    if (str[j] != ","){
+                        link = link+str[j];
+                    } else {break}               
+
+                    }
+                console.log(tab, title, link);        
             }
+  //          console.log(str_split, str_split.length, count);
+        }
 
-        })
-    }
 
-});
-//--  the end  --Кнопка Развернуть/Свернуть
+
+
+makeTree();
 
 });
 
