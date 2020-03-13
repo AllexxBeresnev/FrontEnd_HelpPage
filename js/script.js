@@ -35,10 +35,11 @@ window.addEventListener("DOMContentLoaded", () => {
             title,
             link,
             tab;  //для количества отступов
+        let parent = document.querySelector('.tree');
         let rows = csv.split("\n");
         for (let i = 0; i < rows.length; i++) {  //основной пробег по строкам
             str = rows[i];
-//            console.log(str);          
+
 /*---------------------------*/
 /*Первым проходом находим количество табов*/
             tab = 0;  
@@ -65,7 +66,6 @@ window.addEventListener("DOMContentLoaded", () => {
                 //отсекаем Title
                 str = str.substr(title.length+1, str.length);
 
-//                console.log(str, title);        
 /*---------------------------*/
 //Далее вытаскиваем Link
                 link = "";
@@ -75,15 +75,74 @@ window.addEventListener("DOMContentLoaded", () => {
                     } else {break}               
 
                     }
-                console.log(tab, title, link);        
+//                console.log(tab, title, link);     
+/*---------------------------*/
+/*   Прорисовка блоков на странице*/
+
+                let newDiv = document.createElement('div');
+                //проверка на отстуупы для добалвние класса
+                let col = "";
+                let show = "";
+                if (tab != 0){ //если не корневые ветки дерева
+                    col =`col${tab+1}`;
+                } else {    //если корневые ветки дерева
+                    col ='col1'
+                    show = '-show';
+                };
+                newDiv.classList.add(col)
+                //-------------------------------
+                //В зависимости от типа ветка или лист
+                if (link != "") {   //Если ссылка есть, то лист
+//                    newDiv.classList.add('tree__leaf');
+                    newDiv.innerHTML = `<div class="tree__leaf ${col}"><a href="${link}" class="tree__link">${title}</a></div>`;
+                } else {
+//                    newDiv.classList.add('tree__branch');   
+                    newDiv.innerHTML = `<div class="tree__branch${show} ${col}"><span class="title">${title}</span></div>`;
+                }
+                parent.appendChild(newDiv);
+
+//                console.log(col);     
+
             }
-  //          console.log(str_split, str_split.length, count);
+
+// второй пробег по строкам
+
         }
 
+    makeTree();
 
+//Кнопка Развернуть/Свернуть
+    let expand = document.querySelector(".expand__button");
 
+    expand.addEventListener("click", () => {
+        console.log('123');
+        let branch = document.querySelectorAll(".tree__branch");
+        let leafs = document.querySelectorAll(".tree__leaf");
+        console.log(branch);
+        console.log(leafs);
+            
+        if (expand.innerHTML == "Развернуть") {
+            expand.innerHTML="Свернуть";
+            branch.forEach( (elem) => {
+                elem.classList.add("tree__branch-show");
+            })
+            leafs.forEach( (elem) => {
+                elem.classList.add("tree__leaf-show");
+            })
 
-makeTree();
+        } else {
+            expand.innerHTML="Развернуть";
+            //не трогать корневые ветки дерева
+            branch.forEach( (elem) => {
+                if (!elem.classList.contains('tree_mainItems')) {
+                    elem.classList.remove("tree__branch-show");                
+                }
+            leafs.forEach( (elem) => {
+                    elem.classList.remove("tree__leaf-show");                
+            });
+            });
+    }
+    });
 
 });
 

@@ -100,6 +100,14 @@ header {
   color: blue;
 }
 
+.tree__leaf {
+  display: none;
+}
+
+.tree__leaf-show {
+  display: block;
+}
+
 .tree__link {
   font-family: 'Proxima Nova Light', san-serif;
   text-decoration: none;
@@ -108,6 +116,22 @@ header {
 
 .tree__link:hover {
   color: Magenta;
+}
+
+.tree__branch {
+  display: none;
+}
+
+.tree__branch:hover {
+  cursor: pointer;
+}
+
+.tree__branch-show {
+  display: block;
+}
+
+.col1 {
+  margin-left: 10px;
 }
 
 .col2 {

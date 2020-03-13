@@ -6,6 +6,9 @@
     color: $text-color
 
     &__leaf
+        display: none
+        &-show
+            display: block        
 
     &__link
         +light
@@ -14,12 +17,14 @@
         &:hover
             color: $link-hover-color
     &__branch
-//        display: none
+        display: none
         &:hover
             cursor: pointer
         &-show
             display: block
 
+.col1
+    margin-left: 10px; 
 
 .col2
     margin-left: 30px;
