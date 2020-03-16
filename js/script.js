@@ -79,7 +79,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 }
 /*---------------------------*/
 /*   Прорисовка блоков на странице*/
-                console.log(tab, title, link);
+//                console.log(tab, title, link);
 
 //                if (tab == 0){//Если блок корневой то
 //                    parent = document.querySelector('.tree'); 
@@ -110,7 +110,7 @@ window.addEventListener("DOMContentLoaded", () => {
 //                    newDiv.classList.add('tree__branch');   
 //                    console.log(parentID,oldParentID);
 //                    parentID++;
-                    newDiv.innerHTML = `<div class="tree__branch${show} ${col}"><span class="title">${title}</span></div>`;
+                    newDiv.innerHTML = `<div class="tree__branch ${col}"><span class="title">${title}</span></div>`;
                 }
                 parent.appendChild(newDiv);
 //                console.log(parentID,oldParentID);
@@ -126,7 +126,7 @@ window.addEventListener("DOMContentLoaded", () => {
     makeTree();
 
 //Кнопка Развернуть/Свернуть
-    let expand = document.querySelector(".expand__button");
+   /*  let expand = document.querySelector(".expand__button");
 
     expand.addEventListener("click", () => {
         console.log('123');
@@ -156,18 +156,19 @@ window.addEventListener("DOMContentLoaded", () => {
             });
             });
     }
-    });
+    }); */
 
     //Пробегаемся по всем элементам
     let branch = document.querySelectorAll(".tree__branch");
-    let leafs = document.querySelectorAll(".tree__leaf");
-
+ //   let leafs = document.querySelectorAll(".tree__leaf");
+    console.log(branch);
     branch.forEach(function(elem){
         elem.addEventListener("click", function(event){
             event.stopImmediatePropagation();
     // найти всех уровнем ниже
 
-        elem.classList.toggle("tree__branch-show");            
+            elem.classList.toggle("tree__branch-hide");            
+            console.log('123');
          });
     });
 

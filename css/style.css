@@ -125,6 +125,10 @@ header {
   display: block;
 }
 
+.tree__branch-hide {
+  display: none;
+}
+
 .col1 {
   margin-left: 10px;
 }
