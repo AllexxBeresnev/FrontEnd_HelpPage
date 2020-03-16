@@ -35,10 +35,14 @@ window.addEventListener("DOMContentLoaded", () => {
             title,
             link,
             tab;  //для количества отступов
-        let parent = document.querySelector('.tree');
+        let parent;
+        let parentID;
         let rows = csv.split("\n");
         for (let i = 0; i < rows.length; i++) {  //основной пробег по строкам
             str = rows[i];
+            let isParent = 0;
+// как ослеживать дочерние дивы            
+// на каждой строке определять родительский ли это блок
 
 /*---------------------------*/
 /*Первым проходом находим количество табов*/
@@ -54,30 +58,36 @@ window.addEventListener("DOMContentLoaded", () => {
 /*---------------------------*/
 
 //Далее вытаскиваем Title
-                title = "";
+            title = "";
+            for (let j = 0; j < str.length; j++) { // пробег по бувам
+                if (str[j] != ","){
+                    title = title+str[j];
+                } else {break}               
 
-                for (let j = 0; j < str.length; j++) { // пробег по бувам
-                    if (str[j] != ","){
-                        title = title+str[j];
-                    } else {break}               
-    
-                    }
-
-                //отсекаем Title
-                str = str.substr(title.length+1, str.length);
+                }
+            //отсекаем Title
+            str = str.substr(title.length+1, str.length);
 
 /*---------------------------*/
 //Далее вытаскиваем Link
-                link = "";
-                for (let j = 0; j < str.length; j++) { // пробег по бувам
-                    if (str[j] != ","){
-                        link = link+str[j];
-                    } else {break}               
+            link = "";
+            for (let j = 0; j < str.length; j++) { // пробег по бувам
+                if (str[j] != ","){
+                    link = link+str[j];
+                } else {break}               
 
-                    }
-//                console.log(tab, title, link);     
+                }
 /*---------------------------*/
 /*   Прорисовка блоков на странице*/
+                console.log(tab, title, link);
+
+//                if (tab == 0){//Если блок корневой то
+//                    parent = document.querySelector('.tree'); 
+//                } else {
+//                parent = document.querySelector(`#id${parentID}`); 
+//                }
+
+                parent = document.querySelector('.tree'); 
 
                 let newDiv = document.createElement('div');
                 //проверка на отстуупы для добалвние класса
@@ -94,12 +104,16 @@ window.addEventListener("DOMContentLoaded", () => {
                 //В зависимости от типа ветка или лист
                 if (link != "") {   //Если ссылка есть, то лист
 //                    newDiv.classList.add('tree__leaf');
+// Ссылка на родителя                    
                     newDiv.innerHTML = `<div class="tree__leaf ${col}"><a href="${link}" class="tree__link">${title}</a></div>`;
                 } else {
 //                    newDiv.classList.add('tree__branch');   
+//                    console.log(parentID,oldParentID);
+//                    parentID++;
                     newDiv.innerHTML = `<div class="tree__branch${show} ${col}"><span class="title">${title}</span></div>`;
                 }
                 parent.appendChild(newDiv);
+//                console.log(parentID,oldParentID);
 
 //                console.log(col);     
 

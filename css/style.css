@@ -80,6 +80,7 @@ header {
   color: blue;
   width: 100px;
   margin-left: 20px;
+  display: none;
 }
 
 .save {
@@ -99,10 +100,7 @@ header {
   font-size: 20px;
   color: blue;
   cursor: pointer;
-}
-
-.tree__leaf {
-  display: none;
+  line-height: 1.5;
 }
 
 .tree__leaf-show {
@@ -117,10 +115,6 @@ header {
 
 .tree__link:hover {
   color: Magenta;
-}
-
-.tree__branch {
-  display: none;
 }
 
 .tree__branch:hover {
@@ -145,5 +139,9 @@ header {
 
 .col4 {
   margin-left: 90px;
+}
+
+.col5 {
+  margin-left: 120px;
 }
 /*# sourceMappingURL=style.css.map */
